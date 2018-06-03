@@ -7,27 +7,29 @@
     android:layout_gravity="center"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@drawable/androidparty"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="36sp"
         android:text="Happy Birthday, Ben!"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="36sp"
+        android:fontFamily="sans-serif-light"
         android:text="From, Stephan"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:cropToPadding="true"
-        android:src="@drawable/androidparty"/>
-
-
 
 </RelativeLayout>
