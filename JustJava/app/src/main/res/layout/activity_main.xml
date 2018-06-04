@@ -12,13 +12,33 @@
         android:text="Quantity"
         android:textAllCaps="true"/>
 
-    <TextView
-        android:id="@+id/quantity_text_view"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="#000000"
-        android:textSize="16sp"/>
+        android:layout_marginBottom="16dp">
+        <Button
+            android:id="@+id/decrement_coffee_quantity"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="-"
+            android:onClick="decrementCoffeeAmount"/>
+        <TextView
+            android:id="@+id/quantity_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"/>
+        <Button
+            android:id="@+id/increment_coffee_quantity"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="+"
+            android:onClick="incrementCoffeeAmount"/>
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"

@@ -26,16 +26,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    int coffeeQuantity = 0;
+    double coffeeCost = 3.5;
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int numberOfCoffees = 2;
-        double costOfCoffee = 3.5;
-
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees * costOfCoffee);
+//        display(coffeeQuantity);
+//        displayPrice(coffeeQuantity * coffeeCost);
     }
 
     /**
@@ -53,5 +52,19 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(double number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    public void incrementCoffeeAmount(View view){
+        coffeeQuantity++;
+        display(coffeeQuantity);
+        displayPrice(coffeeQuantity * coffeeCost);
+    }
+
+    public void decrementCoffeeAmount(View view){
+        if (coffeeQuantity > 0){
+            coffeeQuantity--;
+        }
+        display(coffeeQuantity);
+        displayPrice(coffeeQuantity * coffeeCost);
     }
 }
