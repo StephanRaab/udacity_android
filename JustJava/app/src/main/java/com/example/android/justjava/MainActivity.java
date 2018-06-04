@@ -26,12 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(1);
-        displayPrice(3.5);
+        int numberOfCoffees = 2;
+        double costOfCoffee = 3.5;
+
+        display(numberOfCoffees);
+        displayPrice(numberOfCoffees * costOfCoffee);
     }
 
     /**
