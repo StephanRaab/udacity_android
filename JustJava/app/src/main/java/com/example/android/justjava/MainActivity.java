@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
 //        display(coffeeQuantity);
 //        displayPrice(coffeeQuantity * coffeeCost);
+        displayOrderTotal(coffeeQuantity * coffeeCost);
     }
 
     /**
@@ -45,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
+    private void displayOrderTotal(double number){
+        TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
+        orderTotal.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
 
     /**
      * This method displays the given price on the screen.

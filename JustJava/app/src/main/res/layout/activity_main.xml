@@ -20,23 +20,23 @@
             android:id="@+id/decrement_coffee_quantity"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:text="-"
-            android:onClick="decrementCoffeeAmount"/>
+            android:onClick="decrementCoffeeAmount"
+            android:text="-"/>
         <TextView
             android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:text="0"
             android:textColor="#000000"
-            android:textSize="16sp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"/>
+            android:textSize="16sp"/>
         <Button
             android:id="@+id/increment_coffee_quantity"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:text="+"
-            android:onClick="incrementCoffeeAmount"/>
+            android:onClick="incrementCoffeeAmount"
+            android:text="+"/>
     </LinearLayout>
 
 
@@ -61,4 +61,31 @@
         android:layout_marginTop="16dp"
         android:onClick="submitOrder"
         android:text="Order"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingRight="16dp"
+            android:text="Your order total price is: "
+            android:textColor="#FFF"/>
+
+        <TextView
+            android:id="@+id/orderTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="$0"
+            android:textColor="#FFF"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
 </LinearLayout>
