@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.speech.tts.TextToSpeech;
 
 import java.text.NumberFormat;
 
@@ -29,14 +30,17 @@ public class MainActivity extends AppCompatActivity {
     int coffeeQuantity = 0;
     double coffeeCost = 3.5;
 
-    /**
-     * This method is called when the order button is clicked.
-     */
-    public void submitOrder(View view) {
-//        display(coffeeQuantity);
-//        displayPrice(coffeeQuantity * coffeeCost);
-        displayOrderTotal(coffeeQuantity * coffeeCost);
-    }
+    double houseBlendCost = 2.5;
+    double elDiableCost = 2.5;
+    double americanoDecafCost = 2.5;
+
+    double latteCost = 3.5;
+    double cappuccinoCost = 3.00;
+    double macchiatoCost = 2.75;
+    double americanoCost = 2.50;
+    double mochaCost = 3.75;
+    double doubleEspressoCost = 2.25;
+    double addShotCost = 1.00;
 
     /**
      * This method displays the given quantity value on the screen.
@@ -46,23 +50,18 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
+    /**
+     * This method displays the given price on the screen.
+     */
     private void displayOrderTotal(double number){
         TextView orderTotal = (TextView) findViewById(R.id.orderTotal);
         orderTotal.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
-    /**
-     * This method displays the given price on the screen.
-     */
-    private void displayPrice(double number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-
     public void incrementCoffeeAmount(View view){
         coffeeQuantity++;
         display(coffeeQuantity);
-        displayPrice(coffeeQuantity * coffeeCost);
+        displayOrderTotal(coffeeQuantity * coffeeCost);
     }
 
     public void decrementCoffeeAmount(View view){
@@ -70,6 +69,6 @@ public class MainActivity extends AppCompatActivity {
             coffeeQuantity--;
         }
         display(coffeeQuantity);
-        displayPrice(coffeeQuantity * coffeeCost);
+        displayOrderTotal(coffeeQuantity * coffeeCost);
     }
 }
