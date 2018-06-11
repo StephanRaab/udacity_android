@@ -1,10 +1,15 @@
 package com.stephanraab.receiptcalculation;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 
@@ -26,11 +31,18 @@ public class MainActivity extends AppCompatActivity {
         double subTotal = Double.parseDouble(getSubTotal.getText().toString());
         double tipPercentage = Double.parseDouble(getTipPercentage.getText().toString());
 
-//        double double_subTotal = Double.parseDouble(subTotal);
-//        double double_tipPercentage = Double.parseDouble(tipPercentage);
-
         displayTipCost(tipPercentage, subTotal);
         displayTotalPrice(tipPercentage, subTotal);
+
+        LinearLayout outputView = findViewById(R.id.receipt_output);
+        outputView.setVisibility(View.VISIBLE);
+
+        // Check if no view has focus and then close/hide keyboard:
+        View currentView = this.getCurrentFocus();
+        if (currentView != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(currentView.getWindowToken(), 0);
+        }
     }
 
     private void displayTipCost(double tip, double subTotal) {
