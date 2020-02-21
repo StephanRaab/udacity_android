@@ -27,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    int numberOfCoffees = 0;
+    int coffeePrice = 5;
+
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(2);
-        displayPrice(2 * 3);
+        TextView responseText = findViewById(R.id.responseText);
+        responseText.setText("Thank you!");
     }
 
     /**
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayPrice(int number) {
         TextView priceTextView = findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number * coffeePrice));
     }
 
     /**
@@ -49,5 +52,27 @@ public class MainActivity extends AppCompatActivity {
     private void display(int number) {
         TextView quantityTextView = findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
+
+    public void decrementQuantity(View view) {
+        if (numberOfCoffees != 0) {
+            numberOfCoffees--;
+            display(numberOfCoffees);
+            displayPrice(numberOfCoffees);
+        }
+    }
+
+    public void incrementQuantity(View view) {
+        numberOfCoffees++;
+        display(numberOfCoffees);
+        displayPrice(numberOfCoffees);
     }
 }
